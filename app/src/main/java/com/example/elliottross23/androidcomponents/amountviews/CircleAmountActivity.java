@@ -3,6 +3,7 @@ package com.example.elliottross23.androidcomponents.amountviews;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,6 +18,7 @@ public class CircleAmountActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circle_amount);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
         percentageCircleRelativeLayout = ((PercentageCircleRelativeLayout) findViewById(R.id.percentage_circle_view));
         percentageEditText = (EditText) findViewById(R.id.percentage_text_view);
@@ -28,6 +30,16 @@ public class CircleAmountActivity extends Activity {
                 percentageCircleRelativeLayout.showPercentDone(72);
             }
         }, 1000);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     public void onUpdatePercentPressed(View v) {
