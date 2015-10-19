@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <declare-styleable name="PercentageCircleRelativeLayout">
+        <attr name="showBackgroundCircle" format="boolean"/>
+        <attr name="circleColor" format="color"/>
+        <attr name="backgroundCircleColor" format="color"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="animDuration" format="integer"/>
+    </declare-styleable>
+</resources>

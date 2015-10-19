@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AndroidComponents</string>
+    <string name="title_activity_circle_amount">CircleAmountActivity</string>
+</resources>
