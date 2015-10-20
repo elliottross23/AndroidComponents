@@ -10,4 +10,15 @@
         <attr name="backgroundCircleStrokeWidth" format="integer"/>
         <attr name="showText" format="boolean"/>
     </declare-styleable>
+
+    <declare-styleable name="PercentageLineRelativeLayout">
+        <attr name="showBackgroundLine" format="boolean"/>
+        <attr name="lineColor" format="color"/>
+        <attr name="backgroundlineColor" format="color"/>
+        <attr name="backgroundColor" format="color"/>
+        <attr name="animDuration" format="integer"/>
+        <attr name="lineStrokeWidth" format="integer"/>
+        <attr name="backgroundlineStrokeWidth" format="integer"/>
+        <attr name="showText" format="boolean"/>
+    </declare-styleable>
 </resources>

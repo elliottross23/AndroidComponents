@@ -37,6 +37,7 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private int animationDuration;
     private int circleStrokeWidth;
     private int backgroundCircleStrokeWidth;
+    private boolean showText;
 
 
     public PercentageCircleRelativeLayout(Context context) {
@@ -66,6 +67,7 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
             animationDuration = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_animDuration, 1000);
             circleStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_circleStrokeWidth, 50);
             backgroundCircleStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_backgroundCircleStrokeWidth, 40);
+            showText = ta.getBoolean(R.styleable.PercentageCircleRelativeLayout_showText, true);
         } finally {
             ta.recycle();
         }
@@ -90,12 +92,14 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
         angle = 0;
         backgroundAngle = 0;
 
-        textView = new TextView(getContext());
-        RelativeLayout.LayoutParams textViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        textViewLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 40);
-        textView.setGravity(Gravity.CENTER);
-        this.addView(textView, textViewLayoutParams);
+        if(showText) {
+            textView = new TextView(getContext());
+            RelativeLayout.LayoutParams textViewLayoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            textViewLayoutParams.addRule(RelativeLayout.CENTER_IN_PARENT, RelativeLayout.TRUE);
+            textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 40);
+            textView.setGravity(Gravity.CENTER);
+            this.addView(textView, textViewLayoutParams);
+        }
     }
 
     /**
@@ -105,7 +109,9 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
      * @param percent
      */
     public void showPercentDone(final int percent) {
-        textView.setText(String.valueOf(percent) + "%" + "\n" + "complete");
+        if(showText) {
+            textView.setText(String.valueOf(percent) + "%" + "\n" + "complete");
+        }
         ViewAnimation viewAnimation = new ViewAnimation(angle, percent);
         viewAnimation.setDuration(animationDuration);
         startAnimation(viewAnimation);

@@ -20,7 +20,8 @@
         app:backgroundCircleColor="@android:color/darker_gray"
         app:backgroundColor="@android:color/transparent"
         app:circleStrokeWidth="50"
-        app:backgroundCircleStrokeWidth="40">
+        app:backgroundCircleStrokeWidth="40"
+        app:showText="true">
     </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
 
     <View android:id="@+id/center_line"
