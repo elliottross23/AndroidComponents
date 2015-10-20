@@ -35,5 +35,5 @@ percentageCircleRelativeLayout = ((PercentageCircleRelativeLayout) findViewById(
 percentageCircleRelativeLayout.showPercentDone(72);
 ```
 
-### PercentageLineRelativeLayout (in progress)
+### PercentageLineRelativeLayout
 - similar to the circle but a line instead. Still working on the implementation for this one. 
