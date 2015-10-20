@@ -1,5 +1,7 @@
 package com.example.elliottross23.androidcomponents.amountviews;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -9,6 +11,7 @@ import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -59,14 +62,12 @@ public class PercentageLineRelativeLayout extends RelativeLayout {
 
     /**
      * 1. Creates textview to show the percent in the middle
-     * 2. starts an animation to fade in the textview
-     * 3. When that animation is done, then draw the circle layout
-     * @param currentRep
-     * @param totalReps
+     * 3. Animate drawing the line
+     * @param percentDone
      */
-    public void showProgress(final int currentRep, final int totalReps) {
-        textView.setText(String.valueOf(currentRep) + " of " + String.valueOf(totalReps));
-        ViewAnimation viewAnimation = new ViewAnimation(amount, currentRep/totalReps);
+    public void showPercentDone(final int percentDone) {
+        textView.setText(String.valueOf(percentDone) + "%");
+        ViewAnimation viewAnimation = new ViewAnimation(amount, percentDone);
         viewAnimation.setDuration(1000);
         startAnimation(viewAnimation);
     }
@@ -92,20 +93,21 @@ public class PercentageLineRelativeLayout extends RelativeLayout {
         }
 
         startX = 0;
-        yValue = (int)painter.getStrokeWidth();
+        yValue = measurement/2;
         stopX = measurement;
+        float colorLineStopX = ((float)amount/100f) * measurement;
 
         canvas.drawLine(startX, yValue, stopX, yValue, backgroundLinePainter);
-        canvas.drawLine(startX, yValue, amount, yValue, painter);
+        canvas.drawLine(startX, yValue, colorLineStopX, yValue, painter);
     }
 
     private class ViewAnimation extends Animation {
-        private int oldAmount;
-        private int newAmount;
+        private float oldAmount;
+        private float newAmount;
 
         public ViewAnimation(int currentPercentage, int newPercentage) {
             this.oldAmount = currentPercentage;
-            this.newAmount = newPercentage/100;
+            this.newAmount = (int)(((float)newPercentage/100f)* 100);
         }
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation transformation) {

@@ -21,5 +21,12 @@ public class AmountViewsActivity extends Activity {
                 startActivity(new Intent(AmountViewsActivity.this, CircleAmountActivity.class));
             }
         });
+
+        findViewById(R.id.line_percent_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AmountViewsActivity.this, LineAmountActivity.class));
+            }
+        });
     }
 }

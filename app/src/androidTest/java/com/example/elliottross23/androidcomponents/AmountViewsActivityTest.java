@@ -14,6 +14,7 @@ import com.example.elliottross23.androidcomponents.amountviews.AmountViewsActivi
  */
 public class AmountViewsActivityTest extends ActivityUnitTestCase<AmountViewsActivity> {
     private Button circleLayoutButton;
+    private Button lineLayoutButton;
 
     public AmountViewsActivityTest() {
         super(AmountViewsActivity.class);
@@ -27,18 +28,27 @@ public class AmountViewsActivityTest extends ActivityUnitTestCase<AmountViewsAct
         startActivity(launchIntent, null, null);
 
         circleLayoutButton = (Button) getActivity().findViewById(R.id.circle_percent_button);
+        lineLayoutButton = (Button) getActivity().findViewById(R.id.line_percent_button);
     }
 
     @SmallTest
-    public void testCirclePercentButtonIsVisible() {
+    public void testButtonsVisible() {
         assertNotNull(circleLayoutButton);
         assertEquals(View.VISIBLE, circleLayoutButton.getVisibility());
+        assertNotNull(lineLayoutButton);
+        assertEquals(View.VISIBLE, lineLayoutButton.getVisibility());
     }
 
     @MediumTest
     public void testCirclePercentButtonGoesToNextActivity() {
         circleLayoutButton.performClick();
+        final Intent startedActivityIntent = getStartedActivityIntent();
+        assertNotNull("Intent was null", startedActivityIntent);
+    }
 
+    @MediumTest
+    public void testLineButtonGoesToNextActivity() {
+        lineLayoutButton.performClick();
         final Intent startedActivityIntent = getStartedActivityIntent();
         assertNotNull("Intent was null", startedActivityIntent);
     }
