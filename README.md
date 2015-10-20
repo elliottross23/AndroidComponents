@@ -7,7 +7,7 @@ Table of Contents:
 
 1. Custom Views
   - [PercentageCircleRelativeLayout](#percentagecirclerelativelayout)
-  - [PercentageLineRelativeLayout](#percentagelinerelativelayout)2
+  - [PercentageLineRelativeLayout](#percentagelinerelativelayout)
 2. Utils
   - [SystemUtils](#systemutils)
 
