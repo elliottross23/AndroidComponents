@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app1="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -16,9 +15,9 @@
         android:layout_alignParentTop="true"
         android:layout_above="@+id/center_line"
         app:animDuration="4000"
-        app1:circleColor="@android:color/black"
-        app1:showBackgroundCircle="true"
-        app1:backgroundCircleColor="@android:color/darker_gray">
+        app:circleColor="@android:color/black"
+        app:showBackgroundCircle="true"
+        app:backgroundCircleColor="@android:color/darker_gray">
     </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
 
     <View android:id="@+id/center_line"
