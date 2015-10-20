@@ -7,7 +7,9 @@ Table of Contents:
 
 1. Custom Views
   - [PercentageCircleRelativeLayout](#percentagecirclerelativelayout)
-  - [PercentageLineRelativeLayout](#percentagelinerelativelayout)
+  - [PercentageLineRelativeLayout](#percentagelinerelativelayout)2
+2. Utils
+  - [SystemUtils](#systemutils)
 
 ### PercentageCircleRelativeLayout 
 -  a custom view that draws a background circle and colored circle that shows a percentage. All you need to do is add it to your layout, and in your code get a reference to it and call showPercentDone(int percent). This will redraw the view with animation.
@@ -37,3 +39,6 @@ percentageCircleRelativeLayout.showPercentDone(72);
 
 ### PercentageLineRelativeLayout
 - similar to the circle but a line instead. Still working on the implementation for this one. 
+
+### SystemUtils
+- a collection of utils for the android system like hiding/showing the keyboard
