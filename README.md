@@ -9,16 +9,18 @@ All projects are licensed under the MIT license.
 - Add to your layout.xml file (All attributes prefixed with "app:" are customizable)
 ```
   <com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout
-  android:id="@+id/percentage_circle_view"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  android:layout_alignParentTop="true"
-  android:layout_above="@+id/center_line"
-  app:animDuration="4000"
-  app:circleColor="@android:color/black"
-  app:showBackgroundCircle="true"
-  app:backgroundCircleColor="@android:color/darker_gray"
-  app:backgroundColor="@android:color/transparent">
+      android:id="@+id/percentage_circle_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_alignParentTop="true"
+      android:layout_above="@+id/center_line"
+      app:animDuration="4000"
+      app:circleColor="@android:color/black"
+      app:showBackgroundCircle="true"
+      app:backgroundCircleColor="@android:color/darker_gray"
+      app:backgroundColor="@android:color/transparent"
+      app:circleStrokeWidth="50"
+      app:backgroundCircleStrokeWidth="40">
   </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
 ```
 - Then in your Activity, get a reference to the view and set the percentage
