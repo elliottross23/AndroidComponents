@@ -17,7 +17,10 @@
         app:animDuration="4000"
         app:circleColor="@android:color/black"
         app:showBackgroundCircle="true"
-        app:backgroundCircleColor="@android:color/darker_gray">
+        app:backgroundCircleColor="@android:color/darker_gray"
+        app:backgroundColor="@android:color/transparent"
+        app:circleStrokeWidth="50"
+        app:backgroundCircleStrokeWidth="40">
     </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
 
     <View android:id="@+id/center_line"

@@ -35,6 +35,8 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private int backgroundColor;
     private int circleColor;
     private int animationDuration;
+    private int circleStrokeWidth;
+    private int backgroundCircleStrokeWidth;
 
 
     public PercentageCircleRelativeLayout(Context context) {
@@ -62,6 +64,8 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
             backgroundCircleColor = ta.getColor(R.styleable.PercentageCircleRelativeLayout_backgroundCircleColor, Color.LTGRAY);
             backgroundColor = ta.getColor(R.styleable.PercentageCircleRelativeLayout_backgroundColor, Color.TRANSPARENT);
             animationDuration = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_animDuration, 1000);
+            circleStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_circleStrokeWidth, 50);
+            backgroundCircleStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_backgroundCircleStrokeWidth, 40);
         } finally {
             ta.recycle();
         }
@@ -70,15 +74,15 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     }
 
     private void init() {
-        setWillNotDraw(false);
-        painter.setStrokeWidth(50);
+        setWillNotDraw(false); // Need this to update the view!
+        painter.setStrokeWidth(circleStrokeWidth);
 
         Paint.Style paintStyle =  Paint.Style.STROKE;
 
         painter.setStyle(paintStyle);
         painter.setColor(circleColor);
 
-        circlePainter.setStrokeWidth(40);
+        circlePainter.setStrokeWidth(backgroundCircleStrokeWidth);
         circlePainter.setStyle(paintStyle);
         circlePainter.setColor(backgroundCircleColor);
 

@@ -6,5 +6,8 @@
         <attr name="backgroundCircleColor" format="color"/>
         <attr name="backgroundColor" format="color"/>
         <attr name="animDuration" format="integer"/>
+        <attr name="circleStrokeWidth" format="integer"/>
+        <attr name="backgroundCircleStrokeWidth" format="integer"/>
+        <attr name="showText" format="boolean"/>
     </declare-styleable>
 </resources>

@@ -18,12 +18,15 @@ public class LineAmountActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_line_amount);
+        // Used so we can tap the home button on the action bar to go back
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // Find our views
         percentageLineRelativeLayout = ((PercentageLineRelativeLayout) findViewById(R.id.percentage_line_view));
         percentageEditText = (EditText) findViewById(R.id.percentage_text_view);
 
-        // Just an example to delay when the circle animates
+        /* Just an example to show how it works when you enter the activity.
+           We are waiting a full second before starting it. */
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -32,6 +35,12 @@ public class LineAmountActivity extends Activity {
         }, 1000);
     }
 
+    /**
+     * Go back to the previous activity when the home button on the action bar
+     * is pressed
+     * @param item
+     * @return true if the action is consumed, false otherwise
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home) {
@@ -42,7 +51,12 @@ public class LineAmountActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onUpdatePercentPressed(View v) {
+    /**
+     * Button press that lets you keep animating the view and watch
+     * the changes happen
+     * @param view not used
+     */
+    public void onUpdatePercentPressed(View view) {
         int percent = 0;
         try {
             percent = Integer.parseInt(percentageEditText.getText().toString());
