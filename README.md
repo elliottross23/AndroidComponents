@@ -3,6 +3,12 @@
 Putting out the custom components that  I build for my at-home development. 
 All projects are licensed under the MIT license.
 
+Table of Contents:
+
+1. Custom Views
+  - [PercentageCircleRelativeLayout](#percentagecirclerelativelayout)
+  - [PercentageLineRelativeLayout](#percentagelinerelativelayout)
+
 ### PercentageCircleRelativeLayout 
 -  a custom view that draws a background circle and colored circle that shows a percentage. All you need to do is add it to your layout, and in your code get a reference to it and call showPercentDone(int percent). This will redraw the view with animation.
 
