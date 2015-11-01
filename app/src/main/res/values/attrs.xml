@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
+    <!-- attrs used in multiple styleables must be declared separately -->
+    <eat-comment/>
+    <attr name="backgroundColor" format="color"/>
+    <attr name="animDuration" format="integer"/>
+
     <declare-styleable name="PercentageCircleRelativeLayout">
         <attr name="showBackgroundCircle" format="boolean"/>
         <attr name="circleColor" format="color"/>
         <attr name="backgroundCircleColor" format="color"/>
-        <attr name="backgroundColor" format="color"/>
-        <attr name="animDuration" format="integer"/>
+        <attr name="backgroundColor" />
+        <attr name="animDuration" />
         <attr name="circleStrokeWidth" format="integer"/>
         <attr name="backgroundCircleStrokeWidth" format="integer"/>
-        <attr name="showText" format="boolean"/>
+        <attr name="showText" />
     </declare-styleable>
 
     <declare-styleable name="PercentageLineRelativeLayout">
         <attr name="showBackgroundLine" format="boolean"/>
         <attr name="lineColor" format="color"/>
-        <attr name="backgroundlineColor" format="color"/>
-        <attr name="backgroundColor" format="color"/>
-        <attr name="animDuration" format="integer"/>
+        <attr name="backgroundLineColor" format="color"/>
+        <attr name="backgroundColor" />
+        <attr name="animDuration" />
         <attr name="lineStrokeWidth" format="integer"/>
-        <attr name="backgroundlineStrokeWidth" format="integer"/>
-        <attr name="showText" format="boolean"/>
+        <attr name="backgroundLineStrokeWidth" format="integer"/>
+        <attr name="showText" />
     </declare-styleable>
 </resources>

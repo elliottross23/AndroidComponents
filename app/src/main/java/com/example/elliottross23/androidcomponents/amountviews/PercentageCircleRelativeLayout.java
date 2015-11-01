@@ -26,7 +26,7 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private final Paint circlePainter = new Paint(Paint.ANTI_ALIAS_FLAG);
     private RectF rect;
     private float angle;
-    private float backgroundAngle;
+//    private float backgroundAngle;
     private TextView textView;
 
     /* CUSTOM ATTRIBUTES */
@@ -90,7 +90,7 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
 
         //Initial Angle (optional, it can be zero)
         angle = 0;
-        backgroundAngle = 0;
+//        backgroundAngle = 0;
 
         if(showText) {
             textView = new TextView(getContext());
@@ -121,9 +121,9 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
         this.angle = angle;
     }
 
-    public void setBackgroundAngle(float angle) {
-        this.backgroundAngle = angle;
-    }
+//    public void setBackgroundAngle(float angle) {
+//        this.backgroundAngle = angle;
+//    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -149,9 +149,8 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
 
         rect = new RectF(left, top, right, bottom);
 
-        if(showBackgroundCircle) {
-            canvas.drawArc(rect, START_ANGLE_POINT, backgroundAngle, false, circlePainter);
-        }
+        // background circle that just displays a gray background circle
+        canvas.drawArc(rect, START_ANGLE_POINT, 360, false, circlePainter);
 
         canvas.drawArc(rect, START_ANGLE_POINT, angle, false, painter);
     }
@@ -159,19 +158,19 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private class ViewAnimation extends Animation {
         private float oldAngle;
         private float newAngle;
-        private float newBackgroundAngle;
+//        private float newBackgroundAngle;
 
         public ViewAnimation(float angle, int percentage) {
             this.oldAngle = angle;
             this.newAngle = ((float)360) * (percentage/100f);
-            this.newBackgroundAngle = 920; //going around more than once to speed it up
+//            this.newBackgroundAngle = 920; //going around more than once to speed it up
         }
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation transformation) {
             float angleToPass = oldAngle + ((newAngle - oldAngle) * interpolatedTime);
-            float backgroundAngleToPass = oldAngle + ((newBackgroundAngle - oldAngle) * interpolatedTime);
+//            float backgroundAngleToPass = oldAngle + ((newBackgroundAngle - oldAngle) * interpolatedTime);
             setAngle(angleToPass);
-            setBackgroundAngle(backgroundAngleToPass);
+//            setBackgroundAngle(backgroundAngleToPass);
             requestLayout();
         }
     }

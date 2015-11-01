@@ -20,5 +20,4 @@
         android:padding="20dp"
         android:text="Line view"/>
 
-
 </LinearLayout>
