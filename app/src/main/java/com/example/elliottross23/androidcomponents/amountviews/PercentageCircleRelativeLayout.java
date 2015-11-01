@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.elliottross23.androidcomponents.R;
+import com.example.elliottross23.androidcomponents.utils.NumberUtils;
 
 /**
  * Created by elliottross on 10/4/15.
@@ -26,7 +27,6 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private final Paint circlePainter = new Paint(Paint.ANTI_ALIAS_FLAG);
     private RectF rect;
     private float angle;
-//    private float backgroundAngle;
     private TextView textView;
 
     /* CUSTOM ATTRIBUTES */
@@ -90,7 +90,6 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
 
         //Initial Angle (optional, it can be zero)
         angle = 0;
-//        backgroundAngle = 0;
 
         if(showText) {
             textView = new TextView(getContext());
@@ -110,7 +109,7 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
      */
     public void showPercentDone(final int percent) {
         if(showText) {
-            textView.setText(String.valueOf(percent) + "%" + "\n" + "complete");
+            textView.setText(NumberUtils.toPercentString(percent));
         }
         ViewAnimation viewAnimation = new ViewAnimation(angle, percent);
         viewAnimation.setDuration(animationDuration);
@@ -150,7 +149,9 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
         rect = new RectF(left, top, right, bottom);
 
         // background circle that just displays a gray background circle
-        canvas.drawArc(rect, START_ANGLE_POINT, 360, false, circlePainter);
+        if(showBackgroundCircle) {
+            canvas.drawArc(rect, START_ANGLE_POINT, 360, false, circlePainter);
+        }
 
         canvas.drawArc(rect, START_ANGLE_POINT, angle, false, painter);
     }
@@ -158,19 +159,15 @@ public class PercentageCircleRelativeLayout extends RelativeLayout {
     private class ViewAnimation extends Animation {
         private float oldAngle;
         private float newAngle;
-//        private float newBackgroundAngle;
 
         public ViewAnimation(float angle, int percentage) {
             this.oldAngle = angle;
             this.newAngle = ((float)360) * (percentage/100f);
-//            this.newBackgroundAngle = 920; //going around more than once to speed it up
         }
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation transformation) {
             float angleToPass = oldAngle + ((newAngle - oldAngle) * interpolatedTime);
-//            float backgroundAngleToPass = oldAngle + ((newBackgroundAngle - oldAngle) * interpolatedTime);
             setAngle(angleToPass);
-//            setBackgroundAngle(backgroundAngleToPass);
             requestLayout();
         }
     }

@@ -14,12 +14,12 @@
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/center_line"
-        app:animDuration="4000"
-        app:circleColor="@android:color/black"
+        app:animDuration="1000"
+        app:circleColor="@android:color/holo_purple"
         app:showBackgroundCircle="true"
         app:backgroundCircleColor="@android:color/darker_gray"
         app:backgroundColor="@android:color/transparent"
-        app:circleStrokeWidth="50"
+        app:circleStrokeWidth="60"
         app:backgroundCircleStrokeWidth="40"
         app:showText="true">
     </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
@@ -38,6 +38,7 @@
         android:layout_centerHorizontal="true"
         android:textSize="40sp"
         android:inputType="numberDecimal"
+        android:gravity="center"
         android:hint="100"/>
 
     <Button

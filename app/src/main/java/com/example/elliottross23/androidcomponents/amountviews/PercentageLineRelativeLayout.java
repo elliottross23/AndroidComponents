@@ -56,16 +56,16 @@ public class PercentageLineRelativeLayout extends RelativeLayout {
     }
 
     private void getCustomAttrs(Context context, AttributeSet attrs) {
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PercentageCircleRelativeLayout, 0, 0);
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.PercentageLineRelativeLayout, 0, 0);
         try {
-            showBackgroundLine = ta.getBoolean(R.styleable.PercentageCircleRelativeLayout_showBackgroundCircle, true);
-            lineColor = ta.getColor(R.styleable.PercentageCircleRelativeLayout_circleColor, Color.RED);
-            backgroundLineColor = ta.getColor(R.styleable.PercentageCircleRelativeLayout_backgroundCircleColor, Color.LTGRAY);
-            backgroundColor = ta.getColor(R.styleable.PercentageCircleRelativeLayout_backgroundColor, Color.TRANSPARENT);
-            animationDuration = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_animDuration, 1000);
-            lineStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_circleStrokeWidth, 50);
-            backgroundLineStrokeWidth = ta.getInteger(R.styleable.PercentageCircleRelativeLayout_backgroundCircleStrokeWidth, 40);
-            showText = ta.getBoolean(R.styleable.PercentageCircleRelativeLayout_showText, true);
+            showBackgroundLine = ta.getBoolean(R.styleable.PercentageLineRelativeLayout_showBackgroundLine, true);
+            lineColor = ta.getColor(R.styleable.PercentageLineRelativeLayout_lineColor, Color.RED);
+            backgroundLineColor = ta.getColor(R.styleable.PercentageLineRelativeLayout_backgroundLineColor, Color.LTGRAY);
+            backgroundColor = ta.getColor(R.styleable.PercentageLineRelativeLayout_backgroundColor, Color.TRANSPARENT);
+            animationDuration = ta.getInteger(R.styleable.PercentageLineRelativeLayout_animDuration, 1000);
+            lineStrokeWidth = ta.getInteger(R.styleable.PercentageLineRelativeLayout_lineStrokeWidth, 50);
+            backgroundLineStrokeWidth = ta.getInteger(R.styleable.PercentageLineRelativeLayout_backgroundLineStrokeWidth, 40);
+            showText = ta.getBoolean(R.styleable.PercentageLineRelativeLayout_showText, true);
         } finally {
             ta.recycle();
         }
@@ -118,20 +118,11 @@ public class PercentageLineRelativeLayout extends RelativeLayout {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int startX, yValue, stopX, measurement;
-        int height = getHeight();
-        int width = getWidth();
-
-        if(width < height) {
-            // Use width as a basis
-            measurement = width;
-        } else {
-            // Use height as a basis
-            measurement = height;
-        }
+        int startX, yValue, stopX;
+        int measurement = getWidth();
 
         startX = 0;
-        yValue = measurement/2;
+        yValue = measurement/4;
         stopX = measurement;
         float colorLineStopX = ((float)amount/100f) * measurement;
 
