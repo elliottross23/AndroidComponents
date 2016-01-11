@@ -10,6 +10,7 @@ Table of Contents:
 1. Custom Views
   - [PercentageCircleRelativeLayout](#percentagecirclerelativelayout)
   - [PercentageLineRelativeLayout](#percentagelinerelativelayout)
+  - [CalendarView] (#calendarview)
 2. Utils
   - [SystemUtils](#systemutils)
 
@@ -65,6 +66,10 @@ percentageCircleRelativeLayout.showPercentDone(72);
 percentageLineRelativeLayout = ((PercentageLineRelativeLayout) findViewById(R.id.percentage_line_view));
 percentageLineRelativeLayout.showPercentDone(72);
 ```
+
+### CalendarView
+- a gridview that places the current date in the bottom right and let's your scroll backwards through the months
+- more coming soon!
 
 ### SystemUtils
 (a collection of utils for the android system)
