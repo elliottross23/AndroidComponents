@@ -3,9 +3,12 @@ package com.example.elliottross23.androidcomponents.amountviews;
 import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.elliottross23.androidcomponents.R;
@@ -24,6 +27,17 @@ public class CircleAmountActivity extends Activity {
         // Find our views
         percentageCircleRelativeLayout = ((PercentageCircleRelativeLayout) findViewById(R.id.percentage_circle_view));
         percentageEditText = (EditText) findViewById(R.id.percentage_text_view);
+        percentageEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if(actionId == EditorInfo.IME_ACTION_DONE) {
+                    onUpdatePercentPressed(null);
+                    return true;
+                }
+
+                return false;
+            }
+        });
 
         /* Just an example to show how it works when you enter the activity.
            We are waiting a full second before starting it. */
