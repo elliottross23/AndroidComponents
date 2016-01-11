@@ -18,7 +18,7 @@ Table of Contents:
 -  a custom view that draws a background circle and colored circle that shows a percentage. All you need to do is add it to your layout, and in your code get a reference to it and call showPercentDone(int percent). This will redraw the view with animation.
 
 - Add to your layout.xml file (All attributes prefixed with "app:" are customizable)
-```
+```xml
   <com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout
       android:id="@+id/percentage_circle_view"
       android:layout_width="match_parent"
@@ -35,7 +35,7 @@ Table of Contents:
   </com.example.elliottross23.androidcomponents.amountviews.PercentageCircleRelativeLayout>
 ```
 - Then in your Activity, get a reference to the view and set the percentage
-```
+```java
 percentageCircleRelativeLayout = ((PercentageCircleRelativeLayout) findViewById(R.id.percentage_circle_view));
 percentageCircleRelativeLayout.showPercentDone(72);
 ```
@@ -44,7 +44,7 @@ percentageCircleRelativeLayout.showPercentDone(72);
 - similar to the circle but a line instead.
 
 - Add to your layout.xml file (All attributes prefixed with "app:" are customizable)
-```
+```xml
   <com.example.elliottross23.androidcomponents.amountviews.PercentageLineRelativeLayout
       android:id="@+id/percentage_line_view"
       android:layout_width="match_parent"
@@ -62,13 +62,15 @@ percentageCircleRelativeLayout.showPercentDone(72);
 ```
 
 - Then in your Activity, get a reference to the view and set the percentage
-```
+```java
 percentageLineRelativeLayout = ((PercentageLineRelativeLayout) findViewById(R.id.percentage_line_view));
 percentageLineRelativeLayout.showPercentDone(72);
 ```
 
 ### CalendarView
 - a gridview that places the current date in the bottom right and let's your scroll backwards through the months
+- required libraries: 
+      * Android JodaTime (``` 'compile 'net.danlew:android.joda:2.9.1' ```)
 - more coming soon!
 
 ### SystemUtils
