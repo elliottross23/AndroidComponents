@@ -75,4 +75,4 @@ percentageLineRelativeLayout.showPercentDone(72);
 
 ### SystemUtils
 - a collection of utils for the android system
-    *hideKeyboard(Activity activity)
+    * hideKeyboard(Activity activity)
