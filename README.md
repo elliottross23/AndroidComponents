@@ -40,7 +40,31 @@ percentageCircleRelativeLayout.showPercentDone(72);
 ```
 
 ### PercentageLineRelativeLayout
-- similar to the circle but a line instead. Still working on the implementation for this one. 
+- similar to the circle but a line instead.
+
+- Add to your layout.xml file (All attributes prefixed with "app:" are customizable)
+```
+  <com.example.elliottross23.androidcomponents.amountviews.PercentageLineRelativeLayout
+      android:id="@+id/percentage_line_view"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_above="@+id/center_line"
+      app:animDuration="1000"
+      app:lineColor="@android:color/holo_blue_dark"
+      app:showBackgroundLine="true"
+      app:backgroundLineColor="@android:color/darker_gray"
+      app:backgroundColor="@android:color/transparent"
+      app:lineStrokeWidth="60"
+      app:backgroundLineStrokeWidth="40"
+      app:showText="true">
+  </com.example.elliottross23.androidcomponents.amountviews.PercentageLineRelativeLayout>
+```
+
+- Then in your Activity, get a reference to the view and set the percentage
+```
+percentageLineRelativeLayout = ((PercentageLineRelativeLayout) findViewById(R.id.percentage_line_view));
+percentageLineRelativeLayout.showPercentDone(72);
+```
 
 ### SystemUtils
 - a collection of utils for the android system like hiding/showing the keyboard
